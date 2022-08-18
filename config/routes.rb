@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-  resources :tasks
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   root 'homes#index'
@@ -17,5 +15,9 @@ Rails.application.routes.draw do
   resources :homes, only: %i( index )
   resources :users, only: %i( show )
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  resources :tasks do
+    resources :memos
+  end
 
 end
