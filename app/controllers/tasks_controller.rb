@@ -18,6 +18,8 @@ class TasksController < ApplicationController
 
   # GET /tasks/1 or /tasks/1.json
   def show
+    @memos = @task.memos
+    @memo = @task.memos.build
   end
 
   # GET /tasks/new
