@@ -1,27 +1,24 @@
-<p>
-  <strong>Title:</strong>
-  <%= @task.title %>
-</p>
+<div class="container" >
+  <div class="card card-body mt-5 ">
 
-<p>
-  <strong>Content:</strong>
-  <%= @task.content %>
-</p>
+    <p>
+      <strong>Deadline:</strong>
+      <%= @task.deadline %>
+    </p>
 
-<p>
-  <strong>Deadline:</strong>
-  <%= @task.deadline %>
-</p>
+    <p>
+      <strong>Title:</strong>
+      <%= @task.title %>
+    </p>
 
-<p>
-  <strong>Position:</strong>
-  <%= @task.position %>
-</p>
+    <p>
+      <strong>Content:</strong>
+      <%= @task.content %>
+    </p>
 
-<p>
-  <strong>Question:</strong>
-  <%= @task.question_id %>
-</p>
+  </div>
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+  <%= link_to 'Edit', edit_task_path(@task) %> |
+  <%= link_to 'Back', tasks_path %>
+
+</div>
