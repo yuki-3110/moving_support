@@ -1,0 +1,21 @@
+<%= form_with(model: [task, memo]) do |form| %>
+  <% if memo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(memo.errors.count, "error") %> prohibited this memo from being saved:</h2>
+      <ul>
+      <% memo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :タスクに関するメモを書く %> <br>
+    <%= form.text_area :content, placeholder: "ここにメモを入力", class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "保存する", class: 'btn btn-block btn-primary btn-sm' %>
+  </div>
+<% end %>
