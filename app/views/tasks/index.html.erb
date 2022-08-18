@@ -1,0 +1,209 @@
+<div class="container" >
+  <h1 class="my-5 text-center">引越タスク一覧</h1>
+  <ul id="simpleList" class="list-group">
+
+    <p>1ヶ月前まで</p>
+
+    <% @one_month_before_tasks.each do |task| %>
+      <li class="list-group-item list-group-item-secondary mb-3 " >
+      <%= task.title %>
+
+        <div class="text-right">
+          <%= link_to task, class: 'btn btn-primary btn-sm' do %>
+            <i class="fas fa-search"></i>
+          <% end %>
+
+          <%= link_to edit_task_path(task), class: 'btn btn-primary btn-sm' do %>
+            <i class="fa-solid fa-pen-to-square"></i>
+          <% end %>
+          <%= link_to task, class: 'btn btn-primary btn-sm', method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="fa-solid fa-trash-can"></i>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+    
+    <p>14日前まで</p>
+    
+    <% @fourteen_days_ago_tasks.each do |task| %>
+      <li class="list-group-item list-group-item-secondary mb-3" >
+      <%= task.title %>
+      
+        <div class="text-right">
+          <%= link_to task, class: 'btn btn-primary btn-sm' do %>
+            <i class="fas fa-search"></i>
+          <% end %>
+
+          <%= link_to edit_task_path(task), class: 'btn btn-primary btn-sm' do %>
+            <i class="fa-solid fa-pen-to-square"></i>
+          <% end %>
+          
+          <%= link_to task, class: 'btn btn-primary btn-sm', method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="fa-solid fa-trash-can"></i>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  
+    <p>10日前まで</p>
+
+    <% @ten_days_ago_tasks.each do |task| %>
+      <li class="list-group-item list-group-item-secondary mb-3" >
+      <%= task.title %>
+      
+        <div class="text-right">
+          <%= link_to task, class: 'btn btn-primary btn-sm' do %>
+            <i class="fas fa-search"></i>
+          <% end %>
+
+          <%= link_to edit_task_path(task), class: 'btn btn-primary btn-sm' do %>
+            <i class="fa-solid fa-pen-to-square"></i>
+          <% end %>
+          
+          <%= link_to task, class: 'btn btn-primary btn-sm', method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="fa-solid fa-trash-can"></i>
+          <% end %> 
+        </div>
+      </li>
+    <% end %>
+  
+    <p>1週間前まで</p>
+
+    <% @one_week_before_tasks.each do |task| %>
+      <li class="list-group-item list-group-item-secondary mb-3" >
+      <%= task.title %>
+      
+        <div class="text-right">
+          <%= link_to task, class: 'btn btn-primary btn-sm' do %>
+            <i class="fas fa-search"></i>
+          <% end %>
+
+          <%= link_to edit_task_path(task), class: 'btn btn-primary btn-sm' do %>
+            <i class="fa-solid fa-pen-to-square"></i>
+          <% end %>
+
+          <%= link_to task, class: 'btn btn-primary btn-sm', method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="fa-solid fa-trash-can"></i>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  
+    <p>前日まで</p>
+
+    <% @the_day_before_tasks.each do |task| %>
+      <li class="list-group-item list-group-item-secondary mb-3" >
+      <%= task.title %>
+      
+        <div class="text-right">
+          <%= link_to task, class: 'btn btn-primary btn-sm' do %>
+            <i class="fas fa-search"></i>
+          <% end %>
+
+          <%= link_to edit_task_path(task), class: 'btn btn-primary btn-sm' do %>
+            <i class="fa-solid fa-pen-to-square"></i>
+          <% end %>
+          
+          <%= link_to task, class: 'btn btn-primary btn-sm', method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="fa-solid fa-trash-can"></i>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  
+    <p>当日</p>
+    
+    <% @moving_day_tasks.each do |task| %>
+      <li class="list-group-item list-group-item-secondary mb-3" >
+      <%= task.title %>
+      
+        <div class="text-right">
+          <%= link_to task, class: 'btn btn-primary btn-sm' do %>
+            <i class="fas fa-search"></i>
+          <% end %>
+
+          <%= link_to edit_task_path(task), class: 'btn btn-primary btn-sm' do %>
+            <i class="fa-solid fa-pen-to-square"></i>
+          <% end %>
+          
+          <%= link_to task, class: 'btn btn-primary btn-sm', method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="fa-solid fa-trash-can"></i>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  
+    <p>1週間後まで</p>
+
+    <% @after_a_week_tasks.each do |task| %>
+      <li class="list-group-item list-group-item-secondary mb-3" >
+      <%= task.title %>
+      
+        <div class="text-right">
+          <%= link_to task, class: 'btn btn-primary btn-sm' do %>
+            <i class="fas fa-search"></i>
+          <% end %>
+
+          <%= link_to edit_task_path(task), class: 'btn btn-primary btn-sm' do %>
+            <i class="fa-solid fa-pen-to-square"></i>
+          <% end %>
+
+          <%= link_to task, class: 'btn btn-primary btn-sm', method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="fa-solid fa-trash-can"></i>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  
+    <p>2週間後まで</p>
+
+    <% @two_weeks_later_tasks.each do |task| %>
+      <li class="list-group-item list-group-item-secondary mb-3" >
+      <%= task.title %>
+      
+        <div class="text-right">
+          <%= link_to task, class: 'btn btn-primary btn-sm' do %>
+            <i class="fas fa-search"></i>
+          <% end %>
+
+          <%= link_to edit_task_path(task), class: 'btn btn-primary btn-sm' do %>
+            <i class="fa-solid fa-pen-to-square"></i>
+          <% end %>
+
+          <%= link_to task, class: 'btn btn-primary btn-sm', method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="fa-solid fa-trash-can"></i>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  
+    <p>1ヶ月後まで</p>
+  
+
+    <% @one_month_later_tasks.each do |task| %>
+      <li class="list-group-item list-group-item-secondary mb-3" >
+      <%= task.title %>
+      
+        <div class="text-right">
+          <%= link_to task, class: 'btn btn-primary btn-sm' do %>
+            <i class="fas fa-search"></i>
+          <% end %>
+
+          <%= link_to edit_task_path(task), class: 'btn btn-primary btn-sm' do %>
+            <i class="fa-solid fa-pen-to-square"></i>
+          <% end %>
+          
+          <%= link_to task, class: 'btn btn-primary btn-sm', method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="fa-solid fa-trash-can"></i>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <br>
+  <%= link_to 'New Task', new_task_path %>
+</div>
+
+
+
+
