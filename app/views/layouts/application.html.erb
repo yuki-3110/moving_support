@@ -12,6 +12,7 @@
   <body>
     <% if user_signed_in? %>
       <%= link_to "タスク一覧", tasks_path %>
+      <%#= link_to "ホーム画面", user_path(user.id) %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to "新規登録", new_user_registration_path %>
