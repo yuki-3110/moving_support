@@ -18,6 +18,10 @@ Rails.application.routes.draw do
 
   resources :tasks do
     resources :memos
+    member do
+      get :move_higher
+      get :move_lower
+    end
   end
 
 end
