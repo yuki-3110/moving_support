@@ -4,6 +4,7 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json
   def index
+    # @have_to_task = have_to_tasks.find_by(task_id: @task.id)
     @tasks = Task.all.order(:position)
     @one_month_before_tasks = @tasks.all.where(deadline: 1)
     @fourteen_days_ago_tasks = @tasks.all.where(deadline: 2)
@@ -77,6 +78,15 @@ class TasksController < ApplicationController
   def move_lower
     Task.find(params[:id]).move_lower #move_lowerメソッドでpositionを下に
     redirect_to action: :index
+  end
+
+  def toggle
+    # render nothing: true
+    head :no_content
+    @task = Task.find(params[:id])
+    # @task = Task.have_to_tasks
+    @task.have_to_tasks.done = !@task.have_to_tasks.done
+    @task.save
   end
 
   private

@@ -24,4 +24,6 @@ Rails.application.routes.draw do
     end
   end
 
+  post '/tasks/:id/toggle' => 'tasks#toggle'
+
 end
