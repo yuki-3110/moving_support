@@ -5,15 +5,15 @@ class TasksController < ApplicationController
   # GET /tasks or /tasks.json
   def index
     # @tasks = Task.all
-    @one_month_before_tasks = Task.all.where(deadline: 1)
-    @fourteen_days_ago_tasks = Task.all.where(deadline: 2)
-    @ten_days_ago_tasks = Task.all.where(deadline: 3)
-    @one_week_before_tasks = Task.all.where(deadline: 4)
-    @the_day_before_tasks = Task.all.where(deadline: 5)
-    @moving_day_tasks = Task.all.where(deadline: 6)
-    @after_a_week_tasks = Task.all.where(deadline: 7)
-    @two_weeks_later_tasks = Task.all.where(deadline: 8)
-    @one_month_later_tasks = Task.all.where(deadline: 9)
+    @one_month_before_tasks = Task.all.where(deadline: 1).order(:position)
+    @fourteen_days_ago_tasks = Task.all.where(deadline: 2).order(:position)
+    @ten_days_ago_tasks = Task.all.where(deadline: 3).order(:position)
+    @one_week_before_tasks = Task.all.where(deadline: 4).order(:position)
+    @the_day_before_tasks = Task.all.where(deadline: 5).order(:position)
+    @moving_day_tasks = Task.all.where(deadline: 6).order(:position)
+    @after_a_week_tasks = Task.all.where(deadline: 7).order(:position)
+    @two_weeks_later_tasks = Task.all.where(deadline: 8).order(:position)
+    @one_month_later_tasks = Task.all.where(deadline: 9).order(:position)
   end
 
   # GET /tasks/1 or /tasks/1.json
@@ -67,6 +67,16 @@ class TasksController < ApplicationController
       format.html { redirect_to tasks_url, notice: "Task was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def move_higher
+    Task.find(params[:id]).move_higher #move_higherメソッドでpositionを上に
+    redirect_to action: :index
+  end
+  
+  def move_lower
+    Task.find(params[:id]).move_lower #move_lowerメソッドでpositionを下に
+    redirect_to action: :index
   end
 
   private
