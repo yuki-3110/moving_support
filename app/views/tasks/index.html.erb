@@ -5,12 +5,20 @@
 
     <p>1ヶ月前まで</p>
 
+    <%# task.have_to_tasks.each do |have_to_task| %>
+      <%#= check_box_tag '', '' %>
+      <%#= check_box_tag '', '' , task.have_to_tasks.done, {'data-id' => have_to_tasks.id } %>
+    <%# end %>
+
     <% @one_month_before_tasks.each do |task| %>
       <li class="list-group-item list-group-item-secondary mb-3 " >
         <% task.have_to_tasks.each do |have_to_task| %>
-          <%= check_box_tag '', '' , task.have_to_tasks.done, {'data-id' => have_to_tasks.id } %>
-          <%#= check_box_tag '', '' , task.have_to_tasks.done, {'data-id' => have_to_tasks.id } %>
+          <p>aaa</p>
+          <%#= check_box_tag '', '' %>
         <% end %>
+          <%#= check_box_tag '', '' , task.have_to_tasks.done, {'data-id' => have_to_tasks.id } %>
+          <%#= check_box_tag '', '' , task.have_to_tasks.done, {'data-id' => have_to_tasks.id } %>
+        <%# end %>
 
       <%#= hidden_field_tag :task_id, task.id %>
       <%#= check_box_tag '', '' , %>
