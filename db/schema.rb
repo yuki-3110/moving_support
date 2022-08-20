@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_20_110909) do
+ActiveRecord::Schema.define(version: 2022_08_20_113331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 2022_08_20_110909) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "done", default: false
+    t.bigint "moving_id"
+    t.index ["moving_id"], name: "index_tasks_on_moving_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -72,4 +74,5 @@ ActiveRecord::Schema.define(version: 2022_08_20_110909) do
   add_foreign_key "memos", "tasks"
   add_foreign_key "memos", "users"
   add_foreign_key "movings", "users"
+  add_foreign_key "tasks", "movings"
 end
