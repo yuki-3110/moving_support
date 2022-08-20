@@ -1,4 +1,10 @@
+
 <div class="container" >
+  <div class="mt-4">
+    <p id="notice"><%= notice %></p>
+  </div>
+
+
   <div class="card card-body mt-5 ">
 
     <p>
@@ -21,11 +27,6 @@
   <div class="card card-body mt-5 ">
   <!-- hr style="border-top: 5px solid #000;" -->
     <p>保存したメモ</p>
-    <% unless @memo.id.present? %>
-      <p>現在保存されているメモはありません</p>
-    <% else %>
-      <td></td>
-    <% end %>
     <!-- このmemos_areaというHTMLのidを取得して、そのdivの部分だけを更新する -->
     <div id="memos_area">
       <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
@@ -39,7 +40,6 @@
     <%= render partial: 'memos/form', locals: { memo: @memo, task: @task } %>
   </div>
 
-  <%= link_to 'Edit', edit_task_path(@task) %> |
-  <%= link_to 'Back', tasks_path %>
+  <%= link_to 'タスクを編集する', edit_task_path(@task) %>
 
 </div>
