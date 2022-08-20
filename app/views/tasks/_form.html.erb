@@ -1,7 +1,7 @@
 <%= form_with(model: task, local: true) do |form| %>
   <% if task.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+      <h4><%= pluralize(task.errors.count, "件のエラーが発生しました") %> </h4>
 
       <ul>
         <% task.errors.full_messages.each do |message| %>
@@ -16,12 +16,12 @@
     <%= form.select :deadline, Task.deadlines.keys.map {|k| [t("enums.task.deadline.#{k}"), k]}, include_blank: '選択してください', class: 'form-control'  %>
   </div>
 
-  <div class="field">
+  <div class="field mt-4">
     <%= form.label :title %>
     <%= form.text_field :title, placeholder: "タスクタイトルを入力しましょう", class: 'form-control mb-4' %>
   </div>
 
-  <div class="field">
+  <div class="field mt-4">
     <%= form.label :content %>
     <%= form.text_area :content, placeholder: "タスクに関する情報を入力しましょう", class: 'form-control mb-4' %>
   </div>
