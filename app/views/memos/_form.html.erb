@@ -1,7 +1,7 @@
 <%= form_with(model: [task, memo]) do |form| %>
   <% if memo.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(memo.errors.count, "error") %> prohibited this memo from being saved:</h2>
+      <h4><%= pluralize(task.errors.count, "件のエラーが発生しました") %></h4>
       <ul>
       <% memo.errors.full_messages.each do |message| %>
         <li><%= message %></li>

@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+    models:
+      task: タスク
+      moving: 引越
+      memo: メモ
+    attributes:
+      task:
+        title: タスクタイトル
+        content: タスク詳細
+        deadline: 期日
+      moving:
+        moving_day: 引越日
+      memo:
+        memo: メモ

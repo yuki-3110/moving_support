@@ -7,6 +7,7 @@ class MemosController < ApplicationController
     @memo = @task.memos.build(memo_params)
     # クライアント要求に応じてフォーマットを変更
     respond_to do |format|
+      binding.irb
       if @memo.save
         format.js { render :index }
       else
@@ -37,7 +38,7 @@ class MemosController < ApplicationController
   end
 
   def destroy
-    @memo = memo.find(params[:id])
+    @memo = Memo.find(params[:id])
     @memo.destroy
     respond_to do |format|
       flash.now[:notice] = 'コメントが削除されました'
@@ -48,11 +49,11 @@ class MemosController < ApplicationController
   private
   # ストロングパラメーター
   def memo_params
-    params.require(:memo).permit(:content)
+    params.require(:memo).permit(:content, :user_id)
   end
 
   def set_task
-    @task = task.find(params[:task_id])
+    @task = Task.find(params[:task_id])
   end
 end
 
