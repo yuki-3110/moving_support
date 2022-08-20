@@ -4,6 +4,7 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json
   def index
+    # @have_to_task = have_to_tasks.find_by(task_id: @task.id)
     @tasks = Task.all.order(:position)
     @one_month_before_tasks = @tasks.all.where(deadline: 1)
     @fourteen_days_ago_tasks = @tasks.all.where(deadline: 2)
@@ -79,6 +80,13 @@ class TasksController < ApplicationController
     redirect_to action: :index
   end
 
+  def toggle
+    head :no_content
+    @task = Task.find(params[:id])
+    @task.done = !@task.done
+    @task.save
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
@@ -87,6 +95,6 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:title, :content, :deadline, :position, :question_id)
+      params.require(:task).permit(:title, :content, :deadline, :position, :done,  :question_id)
     end
 end

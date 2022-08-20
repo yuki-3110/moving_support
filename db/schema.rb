@@ -10,19 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_18_173329) do
+ActiveRecord::Schema.define(version: 2022_08_20_113331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "assigns", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "team_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["team_id"], name: "index_assigns_on_team_id"
-    t.index ["user_id"], name: "index_assigns_on_user_id"
-  end
 
   create_table "memos", force: :cascade do |t|
     t.text "content"
@@ -56,12 +47,9 @@ ActiveRecord::Schema.define(version: 2022_08_18_173329) do
     t.integer "question_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "teams", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "done", default: false
+    t.bigint "moving_id"
+    t.index ["moving_id"], name: "index_tasks_on_moving_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -83,9 +71,8 @@ ActiveRecord::Schema.define(version: 2022_08_18_173329) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "assigns", "teams"
-  add_foreign_key "assigns", "users"
   add_foreign_key "memos", "tasks"
   add_foreign_key "memos", "users"
   add_foreign_key "movings", "users"
+  add_foreign_key "tasks", "movings"
 end

@@ -8,8 +8,8 @@
 
     <% @one_month_before_tasks.each do |task| %>
       <li class="list-group-item list-group-item-secondary mb-3 " >
+      <%= check_box_tag '', '' , task.done, {'data-id' => task.id } %>
       <%= task.title %>
-
         <div class="text-right">
           <%= link_to task, class: 'btn btn-primary btn-sm' do %>
             <i class="fas fa-search"></i>
@@ -31,6 +31,7 @@
     
     <% @fourteen_days_ago_tasks.each do |task| %>
       <li class="list-group-item list-group-item-secondary mb-3" >
+      <%= check_box_tag '', '' , task.done, {'data-id' => task.id } %>
       <%= task.title %>
       
         <div class="text-right">
@@ -55,6 +56,7 @@
 
     <% @ten_days_ago_tasks.each do |task| %>
       <li class="list-group-item list-group-item-secondary mb-3" >
+      <%= check_box_tag '', '' , task.done, {'data-id' => task.id } %>
       <%= task.title %>
       
         <div class="text-right">
@@ -79,6 +81,7 @@
 
     <% @one_week_before_tasks.each do |task| %>
       <li class="list-group-item list-group-item-secondary mb-3" >
+      <%= check_box_tag '', '' , task.done, {'data-id' => task.id } %>
       <%= task.title %>
       
         <div class="text-right">
@@ -103,6 +106,7 @@
 
     <% @the_day_before_tasks.each do |task| %>
       <li class="list-group-item list-group-item-secondary mb-3" >
+      <%= check_box_tag '', '' , task.done, {'data-id' => task.id } %>
       <%= task.title %>
       
         <div class="text-right">
@@ -127,6 +131,7 @@
     
     <% @moving_day_tasks.each do |task| %>
       <li class="list-group-item list-group-item-secondary mb-3" >
+      <%= check_box_tag '', '' , task.done, {'data-id' => task.id } %>
       <%= task.title %>
       
         <div class="text-right">
@@ -151,6 +156,7 @@
 
     <% @after_a_week_tasks.each do |task| %>
       <li class="list-group-item list-group-item-secondary mb-3" >
+      <%= check_box_tag '', '' , task.done, {'data-id' => task.id } %>
       <%= task.title %>
       
         <div class="text-right">
@@ -175,6 +181,7 @@
 
     <% @two_weeks_later_tasks.each do |task| %>
       <li class="list-group-item list-group-item-secondary mb-3" >
+      <%= check_box_tag '', '' , task.done, {'data-id' => task.id } %>
       <%= task.title %>
       
         <div class="text-right">
@@ -200,6 +207,7 @@
 
     <% @one_month_later_tasks.each do |task| %>
       <li class="list-group-item list-group-item-secondary mb-3" >
+      <%= check_box_tag '', '' , task.done, {'data-id' => task.id } %>
       <%= task.title %>
       
         <div class="text-right">
@@ -220,8 +228,17 @@
       </li>
     <% end %>
   </ul>
-  <br>
 </div>
+
+<script type="text/javascript">
+
+  $(function(){
+    $("input[type=checkbox]").click(function(){
+      $.post('/tasks/' + $(this).data('id') + '/toggle');
+    })
+  })
+
+</script>
 
 
 
