@@ -2,15 +2,20 @@ class MovingsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_moving, only: %i[ show edit update destroy  ]
 
+  def index
+    @movings = Moving.all
+  end
+
   def new
     @moving = Moving.new
   end
 
+
   def create
+    @moving = current_user.movings.build(moving_params)
     respond_to do |format|
-      @moving = current_user.movings.build(moving_params)
       if @moving.save
-        format.html { redirect_to moving_url(@moving), notice: "moving was successfully created." }
+        format.html { redirect_to user_url(current_user), notice: "moving was successfully created." }
         format.json { render :show, status: :created, location: @moving }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -23,7 +28,7 @@ class MovingsController < ApplicationController
   def update
     respond_to do |format|
       if @moving.update(moving_params)
-        format.html { redirect_to moving_url(@moving), notice: "moving was successfully updated." }
+        format.html { redirect_to user_url(current_user), notice: "moving was successfully updated." }
         format.json { render :show, status: :ok, location: @moving }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -46,6 +51,18 @@ class MovingsController < ApplicationController
   end
 
   def edit
+  end
+
+  private
+
+
+  def set_moving
+    @moving = Moving.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def moving_params
+    params.require(:moving).permit(:moving_day, :user_id)
   end
 
 end
