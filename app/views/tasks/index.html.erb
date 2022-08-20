@@ -1,31 +1,15 @@
 <div class="container" >
   <h1 class="my-5 text-center">引越タスク一覧</h1>
+  <%= link_to 'タスクを登録する', new_task_path %>
 
   <ul id="simpleList" class="list-group">
 
     <p>1ヶ月前まで</p>
 
-    <%# task.have_to_tasks.each do |have_to_task| %>
-      <%#= check_box_tag '', '' %>
-      <%#= check_box_tag '', '' , task.have_to_tasks.done, {'data-id' => have_to_tasks.id } %>
-    <%# end %>
-
     <% @one_month_before_tasks.each do |task| %>
       <li class="list-group-item list-group-item-secondary mb-3 " >
-        <% task.have_to_tasks.each do |have_to_task| %>
-          <p>aaa</p>
-          <%#= check_box_tag '', '' %>
-        <% end %>
-          <%#= check_box_tag '', '' , task.have_to_tasks.done, {'data-id' => have_to_tasks.id } %>
-          <%#= check_box_tag '', '' , task.have_to_tasks.done, {'data-id' => have_to_tasks.id } %>
-        <%# end %>
-
-      <%#= hidden_field_tag :task_id, task.id %>
-      <%#= check_box_tag '', '' , %>
+      <%= check_box_tag '', '' , task.done, {'data-id' => task.id } %>
       <%= task.title %>
-      
-      <%#= check_box_tag '', '' , blog.done, {'data-id' => blog.id } %>
-
         <div class="text-right">
           <%= link_to task, class: 'btn btn-primary btn-sm' do %>
             <i class="fas fa-search"></i>
@@ -47,6 +31,7 @@
     
     <% @fourteen_days_ago_tasks.each do |task| %>
       <li class="list-group-item list-group-item-secondary mb-3" >
+      <%= check_box_tag '', '' , task.done, {'data-id' => task.id } %>
       <%= task.title %>
       
         <div class="text-right">
@@ -71,6 +56,7 @@
 
     <% @ten_days_ago_tasks.each do |task| %>
       <li class="list-group-item list-group-item-secondary mb-3" >
+      <%= check_box_tag '', '' , task.done, {'data-id' => task.id } %>
       <%= task.title %>
       
         <div class="text-right">
@@ -95,6 +81,7 @@
 
     <% @one_week_before_tasks.each do |task| %>
       <li class="list-group-item list-group-item-secondary mb-3" >
+      <%= check_box_tag '', '' , task.done, {'data-id' => task.id } %>
       <%= task.title %>
       
         <div class="text-right">
@@ -119,6 +106,7 @@
 
     <% @the_day_before_tasks.each do |task| %>
       <li class="list-group-item list-group-item-secondary mb-3" >
+      <%= check_box_tag '', '' , task.done, {'data-id' => task.id } %>
       <%= task.title %>
       
         <div class="text-right">
@@ -143,6 +131,7 @@
     
     <% @moving_day_tasks.each do |task| %>
       <li class="list-group-item list-group-item-secondary mb-3" >
+      <%= check_box_tag '', '' , task.done, {'data-id' => task.id } %>
       <%= task.title %>
       
         <div class="text-right">
@@ -167,6 +156,7 @@
 
     <% @after_a_week_tasks.each do |task| %>
       <li class="list-group-item list-group-item-secondary mb-3" >
+      <%= check_box_tag '', '' , task.done, {'data-id' => task.id } %>
       <%= task.title %>
       
         <div class="text-right">
@@ -191,6 +181,7 @@
 
     <% @two_weeks_later_tasks.each do |task| %>
       <li class="list-group-item list-group-item-secondary mb-3" >
+      <%= check_box_tag '', '' , task.done, {'data-id' => task.id } %>
       <%= task.title %>
       
         <div class="text-right">
@@ -216,6 +207,7 @@
 
     <% @one_month_later_tasks.each do |task| %>
       <li class="list-group-item list-group-item-secondary mb-3" >
+      <%= check_box_tag '', '' , task.done, {'data-id' => task.id } %>
       <%= task.title %>
       
         <div class="text-right">
@@ -236,8 +228,6 @@
       </li>
     <% end %>
   </ul>
-  <br>
-  <%= link_to 'New Task', new_task_path %>
 </div>
 
 <script type="text/javascript">

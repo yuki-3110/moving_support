@@ -81,11 +81,9 @@ class TasksController < ApplicationController
   end
 
   def toggle
-    # render nothing: true
     head :no_content
     @task = Task.find(params[:id])
-    # @task = Task.have_to_tasks
-    @task.have_to_tasks.done = !@task.have_to_tasks.done
+    @task.done = !@task.done
     @task.save
   end
 
