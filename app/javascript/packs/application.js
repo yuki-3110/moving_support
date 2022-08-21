@@ -8,6 +8,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
+import '../stylesheets/user';
 import '../stylesheets/task';
 import '../stylesheets/devise';
 import 'bootstrap';
