@@ -7,22 +7,37 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <style>
+      body { padding-bottom: 100px; }
+    </style>
+
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <% if current_user.try(:admin?) %>
-        <%= link_to "管理者画面", rails_admin_path %>
-      <% end %>
-      <%= link_to "タスク一覧", tasks_path %>
-      <%= link_to "ホーム画面", user_path(current_user) %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "新規登録", new_user_registration_path %>
-      <%= link_to "ログイン", new_user_session_path %>
-      <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %>
-      <%= link_to "ゲスト管理者ログイン", users_admin_guest_sign_in_path, method: :post %>
-    <% end %>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <%= link_to "引越サポート🚚", root_path , class: "navbar-brand" %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <% if user_signed_in? %>
+            <% if current_user.try(:admin?) %>
+              <a class="nav-item nav-link"><%= link_to "管理者ページ", rails_admin_path %>
+            <% end %>
+            <a class="nav-item nav-link"><%= link_to "タスク一覧", tasks_path %>
+            <a class="nav-item nav-link"><%= link_to "ホーム画面", user_path(current_user) %>
+            <a class="nav-item nav-link"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          <% else %>
+            <a class="nav-item nav-link"><%= link_to "新規登録", new_user_registration_path %>
+            <a class="nav-item nav-link"><%= link_to "ログイン", new_user_session_path %>
+            <a class="nav-item nav-link"><%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %>
+            <a class="nav-item nav-link"><%= link_to "ゲスト管理者ログイン", users_admin_guest_sign_in_path, method: :post %>
+          <% end %>
+        </div>
+      </div>
+    </nav>
 
     <% if notice %>
       <p class="alert alert-notice"><%= notice %></p>
@@ -30,7 +45,10 @@
     <% if alert %>
       <p class="alert alert-error"><%= alert %></p>
     <% end %>
-
     <%= yield %>
+
+    <footer class="fixed-bottom text-center text-black bg-light" style="height: 100px;">
+      <div class="container p-5 h5">© 2022 あなたのお引越をサポートするサイト</div>
+    </footer>
   </body>
 </html>
