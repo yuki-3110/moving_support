@@ -1,3 +1,0 @@
-class HaveToTasksController < ApplicationController
-  
-end
