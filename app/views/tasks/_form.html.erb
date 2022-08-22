@@ -1,33 +1,35 @@
-<%= form_with(model: task, local: true) do |form| %>
-  <% if task.errors.any? %>
-    <div id="error_explanation">
-      <h4><%= pluralize(task.errors.count, "件のエラーが発生しました") %> </h4>
+<div class="container" style=" margin-top: 200px;" >
+  <%= form_with(model: task, local: true) do |form| %>
+    <% if task.errors.any? %>
+      <div id="error_explanation">
+        <h4><%= pluralize(task.errors.count, "件のエラーが発生しました") %> </h4>
 
-      <ul>
-        <% task.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% task.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :deadline %>
+      <%= form.select :deadline, Task.deadlines.keys.map {|k| [t("enums.task.deadline.#{k}"), k]}, include_blank: '選択してください', class: 'form-control'  %>
+    </div>
+
+    <div class="field mt-4">
+      <%= form.label :title %>
+      <%= form.text_field :title, placeholder: "タスクタイトルを入力しましょう", class: 'form-control mb-4' %>
+    </div>
+
+    <div class="field mt-4">
+      <%= form.label :content %>
+      <%= form.text_area :content, placeholder: "タスクに関する情報を入力しましょう", class: 'form-control mb-4' %>
+    </div>
+
+
+    <div class="actions">
+      <%= form.submit class:'btn btn-block btn-primary btn-sm mt-4' %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :deadline %>
-    <%= form.select :deadline, Task.deadlines.keys.map {|k| [t("enums.task.deadline.#{k}"), k]}, include_blank: '選択してください', class: 'form-control'  %>
-  </div>
-
-  <div class="field mt-4">
-    <%= form.label :title %>
-    <%= form.text_field :title, placeholder: "タスクタイトルを入力しましょう", class: 'form-control mb-4' %>
-  </div>
-
-  <div class="field mt-4">
-    <%= form.label :content %>
-    <%= form.text_area :content, placeholder: "タスクに関する情報を入力しましょう", class: 'form-control mb-4' %>
-  </div>
-
-
-  <div class="actions">
-    <%= form.submit class:'btn btn-block btn-primary btn-sm mt-4' %>
-  </div>
-<% end %>
+</div>
