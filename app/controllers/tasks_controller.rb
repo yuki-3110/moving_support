@@ -16,6 +16,7 @@ class TasksController < ApplicationController
     @after_a_week_tasks = @tasks.all.where(deadline: 7)
     @two_weeks_later_tasks = @tasks.all.where(deadline: 8)
     @one_month_later_tasks = @tasks.all.where(deadline: 9)
+    @moving = @tasks.movings.order(moving_day: :desc).first
   end
 
   # GET /tasks/1 or /tasks/1.json

@@ -15,7 +15,7 @@ class MovingsController < ApplicationController
     @moving = current_user.movings.build(moving_params)
     respond_to do |format|
       if @moving.save
-        format.html { redirect_to user_url(current_user), notice: "moving was successfully created." }
+        format.html { redirect_to user_url(current_user), notice: "引越日を設定しました" }
         format.json { render :show, status: :created, location: @moving }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -28,7 +28,7 @@ class MovingsController < ApplicationController
   def update
     respond_to do |format|
       if @moving.update(moving_params)
-        format.html { redirect_to user_url(current_user), notice: "moving was successfully updated." }
+        format.html { redirect_to user_url(current_user), notice: "引越日を変更しました" }
         format.json { render :show, status: :ok, location: @moving }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -38,13 +38,13 @@ class MovingsController < ApplicationController
   end
 
   # DELETE /movings/1 or /movings/1.json
-  def destroy
-    @moving.destroy
-    respond_to do |format|
-      format.html { redirect_to movings_url, notice: "moving was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @moving.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to movings_url, notice: "moving was successfully destroyed." }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   
   def show
