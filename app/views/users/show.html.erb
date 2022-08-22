@@ -1,11 +1,11 @@
 <div class="jumbotron-fluid">
   <%= image_tag 'home.jpg', width: '100%', height: '1300'  %>
-  <div class="card-img-overlay rounded-circle mx-auto mh-100 text-center">
-    <i class="fa-regular fa-calendar-days fa-5x"></i>
-    <p><%= @today %><%= @today.strftime("(%A)") %></p>
+  <div class="card-img-overlay rounded-circle text-center">
+    <i class="fa-regular fa-calendar-days fa-5x mb-3"></i>
+    <p classs="mb-3"><%= @today %><%= @today.strftime("(%A)") %></p>
 
-    <p>引越まで残り</p>
-    <p class="h2 mb-3 text-danger"><%= (@user_moving.moving_day -  @today).to_i %>日</p>
+    <p classs="mb-3">引越まで残り</p>
+    <p class="h1 mb-5 text-danger"><%= (@user_moving.moving_day -  @today).to_i %>日</p>
     <%= link_to "引越日を変更する", edit_moving_path(@user_moving) %>
 
     <p>質問に回答する</p>
