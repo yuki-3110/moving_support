@@ -22,7 +22,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <% if user_signed_in?  %>
+          <% if user_signed_in? && @user_moving.present?  %>
             <% if current_user.try(:admin?) %>
               <a class="nav-item nav-link"><%= link_to "管理者ページ", rails_admin_path %></a>
             <% end %>
