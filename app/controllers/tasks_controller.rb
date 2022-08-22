@@ -6,7 +6,11 @@ class TasksController < ApplicationController
   def index
     # @have_to_task = have_to_tasks.find_by(task_id: @task.id)
     # @tasks = current_user.tasks
-    @tasks = Task.all.order(:position)
+    # @tasks =Task.where(moving: Moving.where(user: current_user).order(moving_day: :desc).first)
+    @tasks =Task.where(moving: Moving.where(user: current_user).order(moving_day: :desc).first)
+
+    # @tasks = current_user.tasks(moving: Moving.order(moving_day: :desc).first)
+    # @tasks = Task.all.order(:position)
     @one_month_before_tasks = @tasks.all.where(deadline: 1)
     @fourteen_days_ago_tasks = @tasks.all.where(deadline: 2)
     @ten_days_ago_tasks = @tasks.all.where(deadline: 3)
@@ -16,7 +20,7 @@ class TasksController < ApplicationController
     @after_a_week_tasks = @tasks.all.where(deadline: 7)
     @two_weeks_later_tasks = @tasks.all.where(deadline: 8)
     @one_month_later_tasks = @tasks.all.where(deadline: 9)
-    @moving = @tasks.movings.order(moving_day: :desc).first
+    # @moving = @tasks.movings.order(moving_day: :desc).first
   end
 
   # GET /tasks/1 or /tasks/1.json
@@ -37,10 +41,10 @@ class TasksController < ApplicationController
   # POST /tasks or /tasks.json
   def create
     @task = Task.new(task_params)
-
+    # binding.irb
     respond_to do |format|
       if @task.save
-        format.html { redirect_to task_url(@task), notice: "Task was successfully created." }
+        format.html { redirect_to task_url(@task), notice: "タスクの登録に成功しました" }
         format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -53,7 +57,7 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to task_url(@task), notice: "Task was successfully updated." }
+        format.html { redirect_to task_url(@task), notice: "タスクの編集に成功しました" }
         format.json { render :show, status: :ok, location: @task }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -67,7 +71,7 @@ class TasksController < ApplicationController
     @task.destroy
 
     respond_to do |format|
-      format.html { redirect_to tasks_url, notice: "Task was successfully destroyed." }
+      format.html { redirect_to tasks_url, notice: "タスクの削除に成功しました" }
       format.json { head :no_content }
     end
   end
@@ -97,6 +101,6 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:title, :content, :deadline, :position, :done,  :question_id)
+      params.require(:task).permit(:title, :content, :deadline, :position, :done, :moving_id,  :question_id)
     end
 end
