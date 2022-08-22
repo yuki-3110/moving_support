@@ -1,5 +1,5 @@
 class Task < ApplicationRecord
-  acts_as_list 
+  acts_as_list scope: :moving
   has_many :memos, dependent: :destroy
   belongs_to :moving
   validates :deadline, presence: true

@@ -7,7 +7,19 @@ class TasksController < ApplicationController
     # @have_to_task = have_to_tasks.find_by(task_id: @task.id)
     # @tasks = current_user.tasks
     # @tasks =Task.where(moving: Moving.where(user: current_user).order(moving_day: :desc).first)
-    @tasks =Task.where(moving: Moving.where(user: current_user).order(moving_day: :desc).first)
+    # @tasks =Task.where(moving: Moving.where(user: current_user).order(moving_day: :desc).first)
+
+    # @tasks =Task.where(moving_id: params[:moving_id]).where(moving: Moving.where(user: current_user).order(moving_day: :desc).first).order(:position)
+
+    @tasks =Task.where(moving: Moving.where(user: current_user).order(moving_day: :desc).first).order(:position)
+    # @moving = Moving.find(params[:moving_id])
+    # @tasks = Task.where(moving_id: params[:moving_id]).order(:position)
+    
+
+    # @user = User.find(params[:user_id])
+    # @posts = Post.where(user_id: params[:user_id]).order(:position)
+
+
     # @user = User.find(params[:id])
 
     # @tasks = current_user.tasks(moving: Moving.order(moving_day: :desc).first)
@@ -79,11 +91,13 @@ class TasksController < ApplicationController
 
   def move_higher
     Task.find(params[:id]).move_higher #move_higherメソッドでpositionを上に
+    # Task.where(moving: Moving.where(user: current_user).order(moving_day: :desc).first).find(params[:id]).move_higher
     redirect_to action: :index
   end
   
   def move_lower
     Task.find(params[:id]).move_lower #move_lowerメソッドでpositionを下に
+    # Task.where(moving: Moving.where(user: current_user).order(moving_day: :desc).first).find(params[:id]).move_lower
     redirect_to action: :index
   end
 
