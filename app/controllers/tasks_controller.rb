@@ -8,6 +8,7 @@ class TasksController < ApplicationController
     # @tasks = current_user.tasks
     # @tasks =Task.where(moving: Moving.where(user: current_user).order(moving_day: :desc).first)
     @tasks =Task.where(moving: Moving.where(user: current_user).order(moving_day: :desc).first)
+    # @user = User.find(params[:id])
 
     # @tasks = current_user.tasks(moving: Moving.order(moving_day: :desc).first)
     # @tasks = Task.all.order(:position)
