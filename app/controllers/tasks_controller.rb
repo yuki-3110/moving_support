@@ -5,6 +5,7 @@ class TasksController < ApplicationController
   # GET /tasks or /tasks.json
   def index
     # @have_to_task = have_to_tasks.find_by(task_id: @task.id)
+    # @tasks = current_user.tasks
     @tasks = Task.all.order(:position)
     @one_month_before_tasks = @tasks.all.where(deadline: 1)
     @fourteen_days_ago_tasks = @tasks.all.where(deadline: 2)

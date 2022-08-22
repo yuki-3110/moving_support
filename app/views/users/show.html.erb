@@ -4,15 +4,9 @@
     <i class="fa-regular fa-calendar-days fa-5x"></i>
     <p><%= @today %><%= @today.strftime("(%A)") %></p>
 
-    <% if @user_moving_day.present?  %>
-      <p>引越まで残り</p>
-      <p class="h2 mb-3 text-danger"><%= (@user_moving_day -  @today).to_i %>日</p>
-      <%#= link_to "引越日を変更する", edit_moving_path(@user_moving_day) %>
-      <%#= link_to "引越日を変更する", edit_moving_path(@moving) %>
-      <%= link_to "引越日を変更する", new_moving_path %>
-    <% else %>
-      <%= link_to "引越予定日を設定しましょう", new_moving_path %>
-    <% end %>
+    <p>引越まで残り</p>
+    <p class="h2 mb-3 text-danger"><%= (@user_moving.moving_day -  @today).to_i %>日</p>
+    <%= link_to "引越日を変更する", edit_moving_path(@user_moving) %>
 
     <p>質問に回答する</p>
   </div>
