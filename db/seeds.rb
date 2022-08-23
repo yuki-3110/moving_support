@@ -6,6 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+user1 = User.create(name: "test1", email: "test1@email.com", password: "111111", admin: true)
+user2 = User.create(name: "test2", email: "test2@email.com", password: "222222")
+user3 = User.create(name: "test3", email: "test3@email.com", password: "333333")
+user4 = User.create(name: "test4", email: "test4@email.com", password: "444444")
+user5 = User.create(name: "test5", email: "test5@email.com", password: "555555")
 # Task.create([
 #   {title: "現在の住まいの管理会社に引越・退去の連絡", content: "必要な持ち物", deadline: "1か月前まで"},
 #   {title: "引越日時の確定", content: "必要な持ち物", deadline: "1か月前まで"},
