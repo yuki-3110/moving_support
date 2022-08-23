@@ -22,18 +22,20 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <% if user_signed_in? %>
+          <%# if user_signed_in? %>
+          <% if user_signed_in? && current_user.movings.present?  %>
             <% if current_user.try(:admin?) %>
-              <a class="nav-item nav-link"><%= link_to "管理者ページ", rails_admin_path %>
+              <a class="nav-item nav-link"><%= link_to "管理者ページ", rails_admin_path %></a>
             <% end %>
-            <a class="nav-item nav-link"><%= link_to "タスク一覧", tasks_path %>
-            <a class="nav-item nav-link"><%= link_to "ホーム画面", user_path(current_user) %>
-            <a class="nav-item nav-link"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            <a class="nav-item nav-link"><%= link_to "タスク一覧", tasks_path %></a>
+            <a class="nav-item nav-link"><%= link_to 'タスクを登録する', new_task_path %></a>
+            <a class="nav-item nav-link"><%= link_to "ホーム画面", user_path(current_user) %></a>
+            <a class="nav-item nav-link"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
           <% else %>
-            <a class="nav-item nav-link"><%= link_to "新規登録", new_user_registration_path %>
-            <a class="nav-item nav-link"><%= link_to "ログイン", new_user_session_path %>
-            <a class="nav-item nav-link"><%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %>
-            <a class="nav-item nav-link"><%= link_to "ゲスト管理者ログイン", users_admin_guest_sign_in_path, method: :post %>
+            <a class="nav-item nav-link"><%= link_to "新規登録", new_user_registration_path %></a>
+            <a class="nav-item nav-link"><%= link_to "ログイン", new_user_session_path %></a>
+            <a class="nav-item nav-link"><%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %></a>
+            <a class="nav-item nav-link"><%= link_to "ゲスト管理者ログイン", users_admin_guest_sign_in_path, method: :post %></a>
           <% end %>
         </div>
       </div>
