@@ -53,7 +53,25 @@ class TasksController < ApplicationController
 
   # POST /tasks or /tasks.json
   def create
-    @task = Task.new(task_params)
+    # @task = Task.new(task_params)
+    #
+    #Moving.first
+    #Task.first.moving
+    #Task.create(moving: Moving.first, title: "hogehoge") 1つ目のmovingに対して、titleを作成
+    #誤った場合の表示、Task.create(moving: "2022-09-27", title: "hogehoge")
+
+    #先に、タスクに紐づけたい引越日を取得した上で、タスクを作成
+    #Moving.first.tasks
+    @task = Moving.find_by(user: current_user, moving_day: params[:task][:moving_day]).tasks.build(task_params)
+    #コントローラーはviewで送られた内容の引越を探す
+    #同じユーザーが同じ引越日を設定している場合、whereは全て取得。find_byはその引越日に該当する引越のインスタンスを取得する
+    #buildは、newのエイリアス（アソシエーションの場合は、関連づけてる意味合いをわかりやすくするために、使用）
+
+
+    #自分の引越日の情報を取得する場合、session[:moving_id] = @task.moving.id
+    # @task = Moving.find(session[:moving_id]).tasks.build(task_params)
+    #session[:moving_id] #=>　2 Moving.find(2)
+    #Moving.find_by(id: 2)でも同じだけど、記述が長くなるので、却下
     # binding.irb
     respond_to do |format|
       if @task.save
