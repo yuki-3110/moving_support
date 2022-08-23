@@ -6,13 +6,25 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
 user1 = User.create(name: "test1", email: "test1@email.com", password: "111111", admin: true)
 user2 = User.create(name: "test2", email: "test2@email.com", password: "222222")
 user3 = User.create(name: "test3", email: "test3@email.com", password: "333333")
 user4 = User.create(name: "test4", email: "test4@email.com", password: "444444")
 user5 = User.create(name: "test5", email: "test5@email.com", password: "555555")
-# Task.create([
+
+moving1 = Moving.create(moving_day: "2022/10/05", user: user1)
+moving2 = Moving.create(moving_day: "2022/10/10", user: user2)
+moving3 = Moving.create(moving_day: "2022/10/15", user: user3)
+moving4 = Moving.create(moving_day: "2022/10/20", user: user4)
+moving5 = Moving.create(moving_day: "2022/10/25", user: user5)
+
+include TasksHelper
+
+Moving.all.each do |moving| 
+  default_tasks(moving)
+end
+
+# [
 #   {title: "現在の住まいの管理会社に引越・退去の連絡", content: "必要な持ち物", deadline: "1か月前まで"},
 #   {title: "引越日時の確定", content: "必要な持ち物", deadline: "1か月前まで"},
 #   {title: "インターネット回線の解約の手続き", content: "必要な持ち物", deadline: "1か月前まで"},
@@ -72,4 +84,19 @@ user5 = User.create(name: "test5", email: "test5@email.com", password: "555555")
 
 
 #   {title: "パスポートの変更手続き｜※本籍・氏名を変更した方のみ", content: "必要な持ち物", deadline: "1か月後まで"},
-# ])
+
+# ].each do |title, content, deadline|
+#   Task.create(
+#     title: title,
+#     content: content,
+#     deadline: deadline,
+#     moving: moving,
+#     # name: "user#{n + 1}",
+#   )
+# end
+
+memo1 = Memo.create(content: "memo1", user: user1, task: user1.movings.first.tasks.first)
+meno2 = Memo.create(content: "memo2", user: user2, task: user2.movings.first.tasks.first)
+memo3 = Memo.create(content: "memo3", user: user3, task: user3.movings.first.tasks.first)
+memo4 = Memo.create(content: "memo4", user: user4, task: user4.movings.first.tasks.first)
+memo5 = Memo.create(content: "memo5", user: user5, task: user5.movings.first.tasks.first)
