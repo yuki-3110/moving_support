@@ -12,15 +12,17 @@
       </div>
     <% end %>
 
-    <div class="field">
-      <%= form.label :deadline %>
-      <%= form.select :deadline, Task.deadlines.keys.map {|k| [t("enums.task.deadline.#{k}"), k]}, include_blank: '選択してください', class: 'form-control'  %>
-    </div>
+    
 
     <div class="field">
       <%#= form.label :最新の引越日が表示された状態のプルダウン %>
       <%= form.label :moving_day %>
       <%= form.select :moving_day, Moving.where(user: current_user).order(updated_at: :desc).pluck(:moving_day), class: 'form-control'  %>
+    </div>
+
+    <div class="field mt-4">
+      <%= form.label :deadline %>
+      <%= form.select :deadline, Task.deadlines.keys.map {|k| [t("enums.task.deadline.#{k}"), k]}, include_blank: '選択してください', class: 'form-control'  %>
     </div>
 
     <div class="field mt-4">
