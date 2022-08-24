@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
   post '/tasks/:id/toggle' => 'tasks#toggle'
 
-  resources :movings 
+  resources :movings, only: %i( new create edit update ) 
 
 
 end
