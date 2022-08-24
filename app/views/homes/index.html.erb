@@ -1,2 +1,52 @@
-<h1>Homes#index</h1>
-<p>Find me in app/views/homes/index.html.erb</p>
+<div class="jumbotron top" style="background:url(<%= asset_path 'top.jpg' %>); background-size:cover; background-position:center bottom; height: 450px;">
+  <div class="container mt-5">
+    <h1 class="mb-3">あなたの引越のお手伝い</h1>
+    <p class="h5 mb-4" >
+    引越の "分からない" はこのアプリ1つで解決！<br>
+    「引越サポート」 は<mark>いつまでに、何をやるべきか、</mark>を確認できるアプリです。
+  </div>
+</div>
+
+
+<div class="album py-5 bg-light mb-5" >
+  <div class="container">
+    <p class=" h3 text-center mb-4">使い方は簡単3ステップ！</p>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card mb-5 shadow-sm">
+          <%= image_tag 'step1.jpg'%>
+          <div class="card-body">
+            <p class="card-text mb-2">
+              <br>
+              ステップ1<br>
+              引越予定日を入力！
+              <br>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-5 shadow-sm">
+          <%= image_tag 'step2.jpg'%>
+          <div class="card-body">
+            <p class="card-text">
+              ステップ2<br>
+              一覧で必要な準備を確認！
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-5 shadow-sm">
+          <%= image_tag 'step3.jpg'%>
+          <div class="card-body">
+            <p class="card-text">
+              ステップ3<br>
+              完了したタスクにチェック！
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
