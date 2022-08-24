@@ -31,6 +31,8 @@
             <a class="nav-item nav-link"><%= link_to 'タスクを登録する', new_task_path %></a>
             <a class="nav-item nav-link"><%= link_to "ホーム画面", user_path(current_user) %></a>
             <a class="nav-item nav-link"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
+          <% elsif user_signed_in? %>
+            <a class="nav-item nav-link"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
           <% else %>
             <a class="nav-item nav-link"><%= link_to "新規登録", new_user_registration_path %></a>
             <a class="nav-item nav-link"><%= link_to "ログイン", new_user_session_path %></a>
