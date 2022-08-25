@@ -4,5 +4,6 @@ FactoryBot.define do
     content { 'content1' }
     deadline  { '1か月前まで' }
     # moving { FactoryBot.create(:moving) }
+    association :moving
   end
 end

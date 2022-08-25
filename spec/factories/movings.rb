@@ -3,6 +3,6 @@ FactoryBot.define do
     # user { FactoryBot.create(:user) }
     # task { FactoryBot.create(:task) }
     moving_day { "2022-10-05" }
-    association :task
+    association :user
   end
 end
