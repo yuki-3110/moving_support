@@ -3,7 +3,7 @@
   <%= form_with(model: moving, local: true) do |form| %>
     <% if moving.errors.any? %>
       <div id="error_explanation">
-        <h4><%= pluralize(task.errors.count, "件のエラーが発生しました") %> </h4>
+        <h4><%= pluralize(moving.errors.count, "件のエラーが発生しました") %> </h4>
         <ul>
           <% moving.errors.full_messages.each do |message| %>
             <li><%= message %></li>
