@@ -5,5 +5,7 @@ FactoryBot.define do
     content { "'a' * 100" }
     association :user
     association :task
+    # user
+    # task
   end
 end
