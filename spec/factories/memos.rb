@@ -1,8 +1,9 @@
 FactoryBot.define do
-  factory :moving do
+  factory :memo do
     # user { FactoryBot.create(:user) }
     # task { FactoryBot.create(:task) }
-    moving_day { "2022-10-05" }
+    content { "'a' * 100" }
+    association :user
     association :task
   end
 end
