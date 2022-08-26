@@ -1,21 +1,21 @@
 require 'rails_helper'
 RSpec.describe 'タスク機能のテスト', type: :system do
-  # describe '自動生成されたタスクのテスト' do
-  #   it '新規登録と引越予定日の入力後、タスクが自動生成されている' do
-  #     visit new_user_registration_path
-  #     fill_in 'user_name', with: 'test_user_01'
-  #     fill_in 'user_email', with: 'test_user_01@test.com'
-  #     fill_in 'user_password', with: '12345678'
-  #     fill_in 'user_password_confirmation', with: '12345678'
-  #     click_on 'アカウント登録'
-  #     expect(page).to have_content '引越予定日'
-  #     fill_in 'moving_moving_day', with: '002022-10-15'
-  #     click_button '設定する'
-  #     expect(page).to have_content 'タスク一覧'
-  #     click_on 'タスク一覧'
-  #     expect(page).to have_content '現在の住まいの管理会社に引越・退去の連絡'
-  #   end
-  # end
+  describe '自動生成されたタスクのテスト' do
+    it '新規登録と引越予定日の入力後、タスクが自動生成されている' do
+      visit new_user_registration_path
+      fill_in 'user_name', with: 'test_user_01'
+      fill_in 'user_email', with: 'test_user_01@test.com'
+      fill_in 'user_password', with: '12345678'
+      fill_in 'user_password_confirmation', with: '12345678'
+      click_on 'アカウント登録'
+      expect(page).to have_content '引越予定日'
+      fill_in 'moving_moving_day', with: '002022-10-15'
+      click_button '設定する'
+      expect(page).to have_content 'タスク一覧'
+      click_on 'タスク一覧'
+      expect(page).to have_content '現在の住まいの管理会社に引越・退去の連絡'
+    end
+  end
 
   describe 'タスクのCRUD機能のテスト' do
     before do
@@ -53,19 +53,4 @@ RSpec.describe 'タスク機能のテスト', type: :system do
       expect(page).not_to have_content 'title1'
     end
   end
-
-
-
-    # click_link 'タスクを追加する'
-    #     fill_in 'task_title',  with: 'task'
-    #     fill_in 'task_content',  with: '買い物'
-    #     fill_in 'task_deadline',  with: '002022-07-14'
-    #     # select "未着手", from: "task_status"
-    #     # select "高", from: "task_priority"
-    #     find("#task_status").find("option[value='not_yet']").select_option
-    #     find("#task_priority").find("option[value='high']").select_option
-    #     click_button '登録する'
-    #     click_button '登録する'
-    #     expect(page).to have_content 'task'
-  # end
 end
