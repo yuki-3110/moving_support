@@ -17,7 +17,7 @@ RSpec.describe 'ユーザー機能のテスト', type: :system do
       before do
         @user = FactoryBot.create(:user)
       end
-      it '​ログイン画面よりログインができる​' do
+      it '​ログインすると引越予定日入力画面に遷移する' do
         visit new_user_session_path
         fill_in 'user_email', with: @user.email
         fill_in 'user_password', with: @user.password
@@ -63,7 +63,7 @@ RSpec.describe 'ユーザー機能のテスト', type: :system do
       end
     end
 
-    context "ログイン後、ログアウトをした場合" do
+    context "ログイン後、ログアウトをクリックした場合" do
       before do
         @user = FactoryBot.create(:user)
         @moving = FactoryBot.create(:moving, user: @user)

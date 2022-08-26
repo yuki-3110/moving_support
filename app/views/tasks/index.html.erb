@@ -11,14 +11,14 @@
       <%= check_box_tag '', '' , task.done, {'data-id' => task.id } %>
       <%= task.title %>
         <div class="text-right">
-          <%= link_to task, class: 'btn btn-primary btn-sm' do %>
+          <%= link_to task, class: 'btn btn-show btn-primary btn-sm' do %>
             <i class="fas fa-search"></i>
           <% end %>
 
-          <%= link_to edit_task_path(task), class: 'btn btn-primary btn-sm' do %>
+          <%= link_to edit_task_path(task), class: 'btn btn-edit btn-primary btn-sm' do %>
             <i class="fas fa-pen-square"></i>
           <% end %>
-          <%= link_to task, class: 'btn btn-primary btn-sm', method: :delete, data: { confirm: '本当に消していいですか?' } do %>
+          <%= link_to task, class: 'btn btn-destroy btn-primary btn-sm', method: :delete, data: { confirm: '本当に消していいですか?' } do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
           <%= link_to "↑", move_higher_task_path(task) %>
