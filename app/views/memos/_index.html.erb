@@ -2,7 +2,7 @@
   <% if memo.id.present? %>
     <div class="memo-content" id ="this_memo_<%= memo.id %>"></div>
     <%= memo.content %>
-    <%= link_to task_memo_path(memo.task_id, memo.id), class: 'btn btn-primary btn-sm', method: :delete, remote: true, data: { confirm: "本当に削除しますか?"} do %>
+    <%= link_to task_memo_path(memo.task_id, memo.id), class: 'btn btn-destroy btn-primary btn-sm', method: :delete, remote: true, data: { confirm: "本当に削除しますか?"} do %>
       <i class="fas fa-trash-alt"></i>
     <% end %>
   <% end %>
