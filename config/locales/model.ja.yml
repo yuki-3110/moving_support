@@ -4,6 +4,7 @@ ja:
       task: タスク
       moving: 引越
       memo: メモ
+      question: 質問
     attributes:
       task:
         title: タスクタイトル
