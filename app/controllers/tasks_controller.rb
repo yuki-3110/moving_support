@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_task, only: %i[ show edit update destroy ]
-
+  before_action :check_user, only: %i[show edit update destroy]
   # GET /tasks or /tasks.json
   def index
     # @have_to_task = have_to_tasks.find_by(task_id: @task.id)
@@ -130,6 +130,12 @@ class TasksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_task
       @task = Task.find(params[:id])
+    end
+
+    def check_user
+      @task = Task.find(params[:id])
+      @user = @task.moving.user
+      redirect_to tasks_path, notice: "他人のタスクの閲覧や編集はできません" unless @user == current_user
     end
 
     # Only allow a list of trusted parameters through.
