@@ -27,14 +27,13 @@
 
     <div class="field mt-4">
       <%= form.label :title %>
-      <%= form.text_field :title, placeholder: "タスクタイトルを入力しましょう", class: 'form-control mb-4' %>
+      <%= form.text_field :title, placeholder: "タスクタイトルを入力してください", class: 'form-control mb-4' %>
     </div>
 
     <div class="field mt-4">
       <%= form.label :content %>
-      <%= form.text_area :content, placeholder: "タスクに関する情報を入力しましょう", class: 'form-control mb-4' %>
+      <%= form.text_area :content, placeholder: "タスクに関する補足がある場合は、入力してください", class: 'form-control mb-4' %>
     </div>
-
 
     <div class="actions">
       <%= form.submit class:'btn btn-block btn-primary btn-sm mt-4' %>
