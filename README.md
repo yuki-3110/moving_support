@@ -7,7 +7,6 @@
 <br>
 
 # 就職Termの技術
-* AWS
 * devise
 * rails_admin
 * cancancan
@@ -16,7 +15,7 @@
 <br>
 
 # カリキュラム外の技術
-* ranked-model
+* acts_as_list/ 並べ替え機能
 
 <br>
 
@@ -32,12 +31,12 @@ $ rails s
 <br>
 
 # カタログ設計
-https://docs.google.com/spreadsheets/d/1MATua8gl4rwt0DhGP5CmsswUq4UbjMmLFTjiuIJoEZM/edit?usp=sharing
+https://docs.google.com/spreadsheets/d/1PdBkzSzcB82jiBmRt2LUAJvLAgyWBRX5RuadvnQtfQ0/edit?usp=sharing
 
 <br>
 
 # テーブル定義書
-https://docs.google.com/spreadsheets/d/1MATua8gl4rwt0DhGP5CmsswUq4UbjMmLFTjiuIJoEZM/edit?usp=sharing
+https://docs.google.com/spreadsheets/d/1PdBkzSzcB82jiBmRt2LUAJvLAgyWBRX5RuadvnQtfQ0/edit?usp=sharing
 
 <br>
 
@@ -47,7 +46,7 @@ https://prottapp.com/app/#/projects/62f104304942fb493009d059/assets/62f12aaa4942
 <br>
 
 # ER図
-![picture 1](images/4a1554ebc22401cafadf2781861a9f8638783017a43bd603c54efb6a28232248.png)  
+![picture 1](images/402352864ecd8d536ae23721c3c21fd9a386fd9356c7f686267cc4fc9ace8493.png)  
 
 <br>
 
