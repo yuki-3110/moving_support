@@ -14,11 +14,12 @@
 
     <p>
       <strong>タスク詳細情報</strong><br>
-      <% if @task.content.include?("http") %>
-        <%= link_to "詳細のご確認はこちら", "#{@task.content}", target: :_blank, rel: "noopener noreferrer" %>
-      <% else %>
-        <%= @task.content %>
-      <% end %>
+      <%= text_url_to_link(h(@task.content)).html_safe %>
+      <%# if @task.content.include?("http") %>
+        <%#= link_to "詳細のご確認はこちら", "#{@task.content}", target: :_blank, rel: "noopener noreferrer" %>
+      <%# else %>
+        <%#= @task.content %>
+      <%# end %>
     </p>
       
 
