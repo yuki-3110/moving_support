@@ -8,11 +8,8 @@ class Users::SessionsController < Devise::SessionsController
     if user_moving.present? 
       redirect_to user_path(user.id) 
     else
-      # binding.irb
       redirect_to new_moving_path, notice: 'ゲストユーザーとしてログインしました。'
     end 
-    # redirect_to new_moving_path, notice: 'ゲストユーザーとしてログインしました。'
-    # redirect_to user_path(user.id), notice: 'ゲストユーザーとしてログインしました。'
   end
 
   def admin_guest_sign_in
@@ -25,7 +22,5 @@ class Users::SessionsController < Devise::SessionsController
     else 
       redirect_to new_moving_path, notice: 'ゲスト管理ユーザーとしてログインしました。'
     end 
-    # redirect_to new_moving_path, notice: 'ゲストユーザーとしてログインしました。'
-    # redirect_to user_path(user.id), notice: 'ゲスト管理ユーザーとしてログインしました'
   end
 end

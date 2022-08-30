@@ -1,7 +1,5 @@
 <div class="container" style=" margin-top: 100px;" >
-
   <div class="card card-body">
-
     <p>
       <strong>期限</strong><br>
       <%= @task.deadline %>
@@ -15,14 +13,7 @@
     <p>
       <strong>タスク詳細情報</strong><br>
       <%= text_url_to_link(h(@task.content)).html_safe %>
-      <%# if @task.content.include?("http") %>
-        <%#= link_to "詳細のご確認はこちら", "#{@task.content}", target: :_blank, rel: "noopener noreferrer" %>
-      <%# else %>
-        <%#= @task.content %>
-      <%# end %>
     </p>
-      
-
   </div>
 
   <div class="card card-body mt-5 ">
@@ -34,13 +25,10 @@
       <%= render partial: 'memos/index', locals: { memos: @memos, task: @task } %>
     </div>
     <br>
-    
     <!--  <p>メモを書く</p> -->
     <br>
     <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
     <%= render partial: 'memos/form', locals: { memo: @memo, task: @task } %>
   </div>
-
   <%= link_to 'タスクを編集する', edit_task_path(@task) %>
-
 </div>

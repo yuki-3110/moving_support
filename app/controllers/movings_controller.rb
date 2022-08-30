@@ -17,7 +17,6 @@ class MovingsController < ApplicationController
       if @moving.save
         format.html { redirect_to user_url(current_user), notice: "引越日を設定しました" }
         format.json { render :show, status: :created, location: @moving }
-        # session[:moving_id] = @moving.id
         default_tasks(@moving)
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -57,7 +56,6 @@ class MovingsController < ApplicationController
 
   private
 
-
   def set_moving
     @moving = Moving.find(params[:id])
   end
@@ -66,5 +64,4 @@ class MovingsController < ApplicationController
   def moving_params
     params.require(:moving).permit(:moving_day, :user_id)
   end
-
 end
