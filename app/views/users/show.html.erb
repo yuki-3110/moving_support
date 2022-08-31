@@ -7,6 +7,5 @@
     <p classs="mb-3">引越まで残り</p>
     <p class="h1 mb-5 text-danger"><%= (@user_moving.moving_day -  @today).to_i %>日</p>
     <%= link_to "引越日を変更する", edit_moving_path(@user_moving) %>
-
   </div>
 </div>

@@ -2,13 +2,9 @@ class MemosController < ApplicationController
   before_action :set_task, only: [:create, :edit, :update]
   
   def create
-    # taskをパラメータの値から探し出し,taskに紐づくmemosとしてbuildします。
-    # @task = task.find(params[:task_id])
     @memo = @task.memos.build(memo_params)
     @memo.user_id = current_user.id
-    # クライアント要求に応じてフォーマットを変更
     respond_to do |format|
-      # binding.irb
       if @memo.save
         format.js { render :index }
       else
@@ -57,7 +53,7 @@ class MemosController < ApplicationController
   end
 
   private
-  # ストロングパラメーター
+  
   def memo_params
     params.require(:memo).permit(:content)
   end

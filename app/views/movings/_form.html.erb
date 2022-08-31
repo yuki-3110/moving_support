@@ -1,5 +1,4 @@
 <div class="container" style=" margin-top: 200px;" >
-
   <%= form_with(model: moving, local: true) do |form| %>
     <% if moving.errors.any? %>
       <div id="error_explanation">
@@ -20,11 +19,8 @@
     <div class="actions mt-5">
       <%= form.submit "設定する", class:'btn btn-block btn-primary btn-sm' %>
     </div>
-
   <% end %>
-  
 </div>
-  
 
 
 
