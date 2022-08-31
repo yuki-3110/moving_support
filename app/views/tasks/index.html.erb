@@ -4,7 +4,7 @@
   
   <ul id="simpleList" class="list-group mt-4">
 
-    <p>1ヶ月前（<%= current_user.movings.first.moving_day.ago(1.month).strftime("%Y/%m/%d") %>）まで</p>
+    <p class="h5">1ヶ月前（<%= current_user.movings.first.moving_day.ago(1.month).strftime("%Y/%m/%d") %>）まで</p>
 
     <% @one_month_before_tasks.each do |task| %>
       <li class="list-group-item list-group-item-secondary mb-3 " >
@@ -27,7 +27,7 @@
       </li>
     <% end %>
     
-    <p>14日前（<%= (current_user.movings.first.moving_day - 14).strftime("%Y/%m/%d") %>）まで</p>
+    <p class="h5">14日前（<%= (current_user.movings.first.moving_day - 14).strftime("%Y/%m/%d") %>）まで</p>
     
     <% @fourteen_days_ago_tasks.each do |task| %>
       <li class="list-group-item list-group-item-secondary mb-3" >
@@ -52,7 +52,7 @@
       </li>
     <% end %>
   
-    <p>10日前（<%= (current_user.movings.first.moving_day - 10).strftime("%Y/%m/%d") %>）まで</p>
+    <p class="h5">10日前（<%= (current_user.movings.first.moving_day - 10).strftime("%Y/%m/%d") %>）まで</p>
 
     <% @ten_days_ago_tasks.each do |task| %>
       <li class="list-group-item list-group-item-secondary mb-3" >
@@ -77,7 +77,7 @@
       </li>
     <% end %>
   
-    <p>1週間前（<%= (current_user.movings.first.moving_day - 7).strftime("%Y/%m/%d") %>）まで</p>
+    <p class="h5">1週間前（<%= (current_user.movings.first.moving_day - 7).strftime("%Y/%m/%d") %>）まで</p>
 
     <% @one_week_before_tasks.each do |task| %>
       <li class="list-group-item list-group-item-secondary mb-3" >
@@ -102,7 +102,7 @@
       </li>
     <% end %>
   
-    <p>前日（<%= (current_user.movings.first.moving_day - 1).strftime("%Y/%m/%d") %>）まで</p>
+    <p class="h5">前日（<%= (current_user.movings.first.moving_day - 1).strftime("%Y/%m/%d") %>）まで</p>
 
     <% @the_day_before_tasks.each do |task| %>
       <li class="list-group-item list-group-item-secondary mb-3" >
@@ -127,7 +127,7 @@
       </li>
     <% end %>
   
-    <p>当日（<%= (current_user.movings.first.moving_day).strftime("%Y/%m/%d") %>）</p>
+    <p class="h5">当日（<%= (current_user.movings.first.moving_day).strftime("%Y/%m/%d") %>）</p>
     
     <% @moving_day_tasks.each do |task| %>
       <li class="list-group-item list-group-item-secondary mb-3" >
@@ -152,7 +152,7 @@
       </li>
     <% end %>
   
-    <p>1週間後（<%= (current_user.movings.first.moving_day + 7).strftime("%Y/%m/%d") %>）まで</p>
+    <p class="h5">1週間後（<%= (current_user.movings.first.moving_day + 7).strftime("%Y/%m/%d") %>）まで</p>
 
     <% @after_a_week_tasks.each do |task| %>
       <li class="list-group-item list-group-item-secondary mb-3" >
@@ -177,7 +177,7 @@
       </li>
     <% end %>
   
-    <p>2週間後（<%= (current_user.movings.first.moving_day + 14).strftime("%Y/%m/%d") %>）まで</p>
+    <p class="h5">2週間後（<%= (current_user.movings.first.moving_day + 14).strftime("%Y/%m/%d") %>）まで</p>
 
     <% @two_weeks_later_tasks.each do |task| %>
       <li class="list-group-item list-group-item-secondary mb-3" >
@@ -202,7 +202,7 @@
       </li>
     <% end %>
   
-    <p>1ヶ月後（<%= current_user.movings.first.moving_day.since(1.month).strftime("%Y/%m/%d") %>）まで</p>
+    <p class="h5">1ヶ月後（<%= current_user.movings.first.moving_day.since(1.month).strftime("%Y/%m/%d") %>）まで</p>
   
 
     <% @one_month_later_tasks.each do |task| %>
